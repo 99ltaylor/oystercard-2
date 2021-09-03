@@ -25,6 +25,13 @@ describe Oystercard do
     end
     it "deducts money from oystercard" do
       expect{subject.deduct 3}.to change{ subject.balance }.by -3
-    end 
-
+    end
+  
+  describe 'in journey' do
+    it {is_expected.to respond_to(:in_journey)}
+    
+    it "is initially not in journey" do
+      expect(subject).not_to be_in_journey
+    end
+  end
 end
